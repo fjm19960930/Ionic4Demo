@@ -1,3 +1,4 @@
+///<reference path="../ionic/list-page/list-page.ts"/>
 import {Component} from '@angular/core';
 import {ModalController, PickerController} from '@ionic/angular';
 import {ZUiService} from '../../frame/services/z-ui.service';

@@ -33,4 +33,8 @@ export class TabComponentPage implements OnInit {
     startJSBridge() {
         this.router.navigate(['/jsbridge']);
     }
+
+    startVideo() {
+        this.router.navigate(['/video-player']);
+    }
 }

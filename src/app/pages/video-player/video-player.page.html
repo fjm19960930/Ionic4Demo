@@ -1,0 +1,24 @@
+<z-toolbar title="Video Player"></z-toolbar>
+<ion-content padding>
+    <vg-player class="video-container">
+        <vg-overlay-play></vg-overlay-play>
+        <vg-buffering></vg-buffering>
+        <vg-controls>
+            <vg-play-pause></vg-play-pause>
+            <vg-playback-button></vg-playback-button>
+
+            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+            <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+            <vg-mute></vg-mute>
+            <vg-volume></vg-volume>
+            <vg-fullscreen></vg-fullscreen>
+        </vg-controls>
+        <video #myMedia [vgMedia]="myMedia" id="my-video"
+               height="210" preload="auto"
+               poster="assets/img/icon_head.jpg"
+               crossorigin playsinline webkit-playsinline>
+            <source src="assets/demo.mp4" type="video/mp4">
+        </video>
+    </vg-player>
+</ion-content>

@@ -30,6 +30,7 @@ export class AMapComponent implements AfterContentInit {
     loadMap() {
         this._mapView = new AMap.Map('amap-container', {
             resizeEnable: true,
+            logo: false
         });
     }
 

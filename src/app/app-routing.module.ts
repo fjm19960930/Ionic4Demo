@@ -15,7 +15,7 @@ const routes: Routes = [
     {path: 'ant-date-picker', loadChildren: './pages/zorro-ant/ant-date-picker/ant-date-picker.module#AntDatePickerPageModule'},
     {path: 'ant-ui-gather', loadChildren: './pages/zorro-ant/ant-ui-gather/ant-ui-gather.module#AntUiGatherPageModule'},
     {path: 'f2_charts', loadChildren: './pages/f2-charts/f2-charts.module#F2ChartsPageModule'},
-
+    {path: 'video-player', loadChildren: './pages/video-player/video-player.module#VideoPlayerPageModule'},
 ];
 
 @NgModule({
