@@ -1,44 +1,37 @@
-import { ModalFromRightLeave, ModalFromRightEnter } from './rightmenu-modal-transitions';
-import { ErrorHandler, NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { IonicApp, IonicErrorHandler, IonicModule, Config } from "ionic-angular";
-import { MyApp } from "./app.component";
-import { ProviderModule } from "../providers/provider.module";
-import * as ionicGalleryModal from 'ionic-gallery-modal';
-import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { ModalAlertEnter, ModalAlertLeave } from './zselect-modal-transitions';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouteReuseStrategy} from '@angular/router';
+import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {NgModule} from '@angular/core';
+import {ProviderModule} from './services/provider.module';
+import {ExternalWebViewPageModule} from './frame/components/external-web-view/external-web-view.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {NgZorroAntdMobileModule} from 'ng-zorro-antd-mobile';
+
 @NgModule({
-    declarations: [
-        MyApp
-    ],
+    declarations: [AppComponent],
+    entryComponents: [],
     imports: [
         BrowserModule,
+        AppRoutingModule,
         ProviderModule,
-        ionicGalleryModal.GalleryModalModule,
-        IonicModule.forRoot(MyApp, {
+        ExternalWebViewPageModule,
+        IonicModule.forRoot({
             mode: 'md',
             backButtonText: '返回',
-            tabsHideOnSubPages: true,
-        })
-    ],
-    bootstrap: [IonicApp],
-    entryComponents: [
-        MyApp
+        }),
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        NgZorroAntdMobileModule,
     ],
     providers: [
-        { provide: ErrorHandler, useClass: IonicErrorHandler },
-        { provide: HAMMER_GESTURE_CONFIG, useClass: ionicGalleryModal.GalleryModalHammerConfig, }
-    ]
+        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
-    constructor(public config: Config) {
-        this.setCustomTransitions();
-    }
-
-    private setCustomTransitions() {
-        this.config.setTransition('modal-from-right-enter', ModalFromRightEnter);
-        this.config.setTransition('modal-from-right-leave', ModalFromRightLeave);
-        this.config.setTransition('modal-alert-enter', ModalAlertEnter);
-        this.config.setTransition('modal-alert-leave', ModalAlertLeave);
-    }
 }
