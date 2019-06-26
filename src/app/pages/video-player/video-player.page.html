@@ -1,24 +1,31 @@
 <z-toolbar title="Video Player"></z-toolbar>
-<ion-content padding>
+<ion-content style="background: blue" padding>
     <vg-player class="video-container">
         <vg-overlay-play></vg-overlay-play>
         <vg-buffering></vg-buffering>
-        <vg-controls>
-            <vg-play-pause></vg-play-pause>
-            <vg-playback-button></vg-playback-button>
+        <vg-controls [vgAutohide]="true" [vgAutohideTime]="3">
+            <vg-play-pause class="video-control-btn"></vg-play-pause><!--暂停和恢复播放-->
+            <vg-playback-button class="video-control-btn"></vg-playback-button><!--倍速播放-->
 
-            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
-            <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
-            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
-            <vg-mute></vg-mute>
-            <vg-volume></vg-volume>
-            <vg-fullscreen></vg-fullscreen>
+            <vg-time-display class="video-control-btn" vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+            <vg-scrub-bar class="video-progress">
+                <vg-scrub-bar-current-time [vgSlider]="true"></vg-scrub-bar-current-time>
+                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+            <!--<vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>-->
+            <vg-time-display class="video-control-btn" vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+            <vg-mute class="video-control-btn"></vg-mute><!--当前音量和静音之间切换-->
+            <vg-quality-selector class="video-control-btn" [bitrates]="dashBitrates"
+                                 (onBitrateChange)="vgDash.setBitrate($event)">
+            </vg-quality-selector>
+            <!--<vg-volume class="video-control-voice"></vg-volume>&lt;!&ndash;更改音量&ndash;&gt;-->
+            <vg-fullscreen class="video-control-btn"></vg-fullscreen><!--全屏和非全屏之间切换-->
         </vg-controls>
         <video #myMedia [vgMedia]="myMedia" id="my-video"
-               height="210" preload="auto"
+               height="200" preload="auto"
                poster="assets/img/icon_head.jpg"
                crossorigin playsinline webkit-playsinline>
-            <source src="assets/demo.mp4" type="video/mp4">
+            <source src="{{videoPath}}" type="video/mp4">
         </video>
     </vg-player>
 </ion-content>
