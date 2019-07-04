@@ -37,4 +37,12 @@ export class TabComponentPage implements OnInit {
     startVideo() {
         this.router.navigate(['/video-player']);
     }
+
+    startAudio() {
+        this.router.navigate(['/audio-player']);
+    }
+
+    startCamera() {
+        this.router.navigate(['/camera']);
+    }
 }

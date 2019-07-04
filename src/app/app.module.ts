@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgZorroAntdMobileModule} from 'ng-zorro-antd-mobile';
+import {Camera} from '@ionic-native/camera/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -29,6 +30,7 @@ import {NgZorroAntdMobileModule} from 'ng-zorro-antd-mobile';
         NgZorroAntdMobileModule,
     ],
     providers: [
+         Camera,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     ],
     bootstrap: [AppComponent]

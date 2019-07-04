@@ -1,0 +1,8 @@
+<z-toolbar title="Audio Player"></z-toolbar>
+
+<ion-content padding>
+    <audio id="myaudio" src="assets/music.mp3" type="audio/mp3" controls="controls" loop="false"></audio>
+    <ion-button expand="block" (click)='musicStart()'>开始</ion-button>
+    <ion-button expand="block" (click)='musicStop()'>暂停</ion-button>
+    <ion-button expand="block" (click)='musicReplay()'>重新播放</ion-button>
+</ion-content>

@@ -27,8 +27,8 @@ export class VideoPlayerPage implements OnInit {
         label: "超清",
     };
     dashBitrates:Array<BitrateOption> = [];
-    constructor() { }
-
+    constructor() {
+    }
     ngOnInit() {
         this.videoPath = "assets/demo.mp4";
         this.dashBitrates.push(this.videoQuality1, this.videoQuality2);

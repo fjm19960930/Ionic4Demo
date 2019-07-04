@@ -474,13 +474,15 @@ export class AMapComponent implements AfterContentInit {
      * @param isCustom  用自定义窗体
      * @param offset    偏移 AMap.Pixel
      */
-    showInfoWindow(content: string | object, isCustom?: boolean, offset?) {
+    showInfoWindow(c: string[], position: object) {
         const infoWindow = new AMap.InfoWindow({
-            isCustom: isCustom || true,
-            content: content,
-            offset: offset
+            isCustom: true,
+            content: c.join(''),
+            offset: new AMap.Pixel(0, -38),
+            closeWhenClickMap: true,
+            showShadow: true
         });
-        infoWindow.open(this._mapView);
+        infoWindow.open(this._mapView, position);
         return infoWindow;
     }
 

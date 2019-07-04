@@ -104,7 +104,20 @@ export class AMapPage {
             };
 
             makers.push(this.aMap.getMaker(makerOption, (e) => {
-                this.uiService.showAlert(e.target.getExtData());
+                const info = [];
+                info.push('<div style="background: #3385FF; padding: 8px 12px 1px 12px; border-radius:5px">');
+                info.push('<b style="color: #FFFFFF">');
+                info.push(e.target.getExtData());
+                info.push('</b>');
+                info.push('<br/>');
+                info.push('<p style="color: #FFFFFF; font-size: 14px">');
+                info.push(e.target.getExtData());
+                info.push('</p>');
+                info.push('</div>');
+                info.push('<div style="display: flex; justify-content: center">');
+                info.push('<img style="width: 20px; height: 10px;" src="assets/img/triangle.png"/>');
+                info.push('</div>');
+                this.aMap.showInfoWindow(info, position);
             }));
         }
         const overlayGroup = this.aMap.getOverLayGroup(makers);

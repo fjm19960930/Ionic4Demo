@@ -16,6 +16,8 @@ const routes: Routes = [
     {path: 'ant-ui-gather', loadChildren: './pages/zorro-ant/ant-ui-gather/ant-ui-gather.module#AntUiGatherPageModule'},
     {path: 'f2_charts', loadChildren: './pages/f2-charts/f2-charts.module#F2ChartsPageModule'},
     {path: 'video-player', loadChildren: './pages/video-player/video-player.module#VideoPlayerPageModule'},
+    {path: 'audio-player', loadChildren: './pages/audio-player/audio-player.module#AudioPlayerPageModule'},
+    {path: 'camera', loadChildren: './pages/camera/camera.module#CameraPageModule'},
 ];
 
 @NgModule({
